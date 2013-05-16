@@ -1,7 +1,7 @@
 /*!
 {
   "name": "CSS wrap-flow",
-  "property": "wrap-flow",
+  "property": "wrapflow",
   "tags": ["css"],
   "notes": [
     "This is a separate test from the rest of CSS Exclusions as as IE10 has just implemented this alone."
@@ -10,7 +10,7 @@
       "href": "http://www.w3.org/TR/css3-exclusions"
     },
     {
-      "name": "Adobe docs examples",
+      "name": "Example by Adobe",
       "href": "http://html.adobe.com/webstandards/cssexclusions"
     }
   ]
