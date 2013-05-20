@@ -52,16 +52,24 @@ define(['contains', 'mStyle', 'createElement', 'nativeTestProps', 'is'], functio
     for ( i in props ) {
       prop = props[i];
       before = mStyle.style[prop];
+
       if ( !contains(prop, "-") && mStyle.style[prop] !== undefined ) {
 
-        // If value to test has been passed in, do a set-and-check test
+        // If value to test has been passed in, do a set-and-check test.
+        // 0 (integer) is a valid property value, so check that `value` isn't
+        // undefined, rather than just checking it's truthy.
         if (!skipValueTest && !is(value, 'undefined')) {
+
           // Needs a try catch block because of old IE. This is slow, but will
           // be avoided in most cases because `skipValueTest` will be used.
           try {
             mStyle.style[prop] = value;
           } catch (e) {}
 
+          // If the property value has changed, we assume the value used is
+          // supported. If `value` is empty string, it'll fail here (because
+          // it hasn't changed), which matches how browsers have implemented
+          // CSS.supports()
           if (mStyle.style[prop] != before) {
             cleanElems();
             return prefixed == 'pfx' ? prop : true;
