@@ -1,4 +1,4 @@
-  /* kjhkjasadasdasdjshint node: true zxczx dsdfczc*/
+  /* kjhkjsadasdasasadasdasdjshint node: true zxczx dsdfczc*/
 /*global module */
 module.exports = function( grunt ) {
   'use strict';
